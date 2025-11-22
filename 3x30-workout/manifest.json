@@ -1,6 +1,6 @@
 {
-  "name": "3x30 Bodyweight Workout Tracker",
-  "short_name": "3x30 Workout",
+  "name": "Bodyweight Workout App",
+  "short_name": "Workout",
   "description": "Track your Jake Wood 3x30 Bodyweight Program workouts",
   "start_url": "/",
   "display": "standalone",

@@ -17,6 +17,10 @@ const AudioCues = {
         if (!this.context) {
             this.context = new (window.AudioContext || window.webkitAudioContext)();
         }
+        // iOS requires user interaction to unlock audio
+        if (this.context.state === 'suspended') {
+            this.context.resume();
+        }
     },
 
     // Beep sound for countdown

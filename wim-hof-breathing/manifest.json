@@ -1,6 +1,6 @@
 {
-  "name": "Wim Hof Breathing Method",
-  "short_name": "Wim Hof",
+  "name": "Breathe App",
+  "short_name": "Breathe",
   "description": "Guided Wim Hof breathing method with audio cues",
   "start_url": "/",
   "display": "standalone",
