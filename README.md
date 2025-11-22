@@ -4,7 +4,7 @@ A collection of small, useful web applications built with vanilla JavaScript and
 
 ## Apps
 
-### 3x30 Workout Tracker
+### Bodyweight Workout App
 
 A Progressive Web App (PWA) for tracking Jake Wood's 3x30 Bodyweight Program.
 
