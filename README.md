@@ -8,7 +8,7 @@ A collection of small, useful web applications built with vanilla JavaScript and
 
 A Progressive Web App (PWA) for tracking Jake Wood's 3x30 Bodyweight Program.
 
-**Live Demo:** [https://3x30-workout.pages.dev](https://3x30-workout.pages.dev)
+**Live Demo:** [https://workout-app-co4.pages.dev](https://workout-app-co4.pages.dev)
 
 **Features:**
 - Full workout program with 3 phases (Movement Mastery, Volume Build, Density & Power)
@@ -33,7 +33,7 @@ A Progressive Web App (PWA) for tracking Jake Wood's 3x30 Bodyweight Program.
 
 A guided Progressive Web App (PWA) for practicing the Wim Hof breathing method.
 
-**Live Demo:** [https://wim-hof-breathing.pages.dev](https://wim-hof-breathing.pages.dev)
+**Live Demo:** [https://breathe-app.pages.dev](https://breathe-app.pages.dev)
 
 **Features:**
 - Guided breathing sessions with visual and audio cues
