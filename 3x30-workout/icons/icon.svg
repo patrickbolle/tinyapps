@@ -1,0 +1,11 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#1f2937" rx="100"/>
+  <g fill="#60a5fa">
+    <!-- Dumbbell icon -->
+    <rect x="100" y="230" width="80" height="52" rx="10"/>
+    <rect x="332" y="230" width="80" height="52" rx="10"/>
+    <rect x="180" y="242" width="152" height="28" rx="6"/>
+    <!-- 3x30 Text -->
+    <text x="256" y="380" font-family="Arial, sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="#60a5fa">3x30</text>
+  </g>
+</svg>
