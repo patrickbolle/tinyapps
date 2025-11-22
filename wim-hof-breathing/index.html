@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Wim Hof Breathing">
+    <meta name="theme-color" content="#0f172a">
+    <title>Wim Hof Breathing Method</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #06b6d4;
+            --primary-dark: #0891b2;
+            --secondary: #8b5cf6;
+            --accent: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        /* Button press effect */
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Gradient backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .gradient-secondary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        /* Card shadow effect */
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Breathing circle animation */
+        .breathing-circle {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 2s ease-in-out, box-shadow 2s ease-in-out;
+        }
+
+        .breathing-circle.inhale {
+            transform: scale(1.3);
+            box-shadow: 0 0 60px 20px rgba(6, 182, 212, 0.6);
+        }
+
+        .breathing-circle.exhale {
+            transform: scale(1);
+            box-shadow: 0 0 20px 5px rgba(6, 182, 212, 0.3);
+        }
+
+        .breathing-circle.hold {
+            box-shadow: 0 0 40px 15px rgba(139, 92, 246, 0.6);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%)">
+    <!-- Main Container -->
+    <div id="app" class="max-w-md mx-auto min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="shadow-lg sticky top-0 z-50" style="background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(10px);">
+            <div class="px-4 py-4">
+                <h1 class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent">
+                    Wim Hof Breathing
+                </h1>
+                <p class="text-sm text-slate-400 text-center mt-1">Guided Breathing Method</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex border-t border-slate-700">
+                <button onclick="showView('home')" class="flex-1 py-3 text-sm font-medium nav-btn active text-slate-400" data-view="home">
+                    Home
+                </button>
+                <button onclick="showView('session')" class="flex-1 py-3 text-sm font-medium nav-btn text-slate-400" data-view="session">
+                    Session
+                </button>
+                <button onclick="showView('history')" class="flex-1 py-3 text-sm font-medium nav-btn text-slate-400" data-view="history">
+                    History
+                </button>
+                <button onclick="showView('guide')" class="flex-1 py-3 text-sm font-medium nav-btn text-slate-400" data-view="guide">
+                    Guide
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto pb-20">
+
+            <!-- Home View -->
+            <div id="homeView" class="view p-4">
+                <div class="rounded-xl p-6 mb-4 card-shadow" style="background: var(--bg-card);">
+                    <h2 class="text-2xl font-bold mb-2">Welcome</h2>
+                    <p class="text-slate-400 mb-4">Ready for your breathing session?</p>
+                    <button onclick="startSession()" class="w-full gradient-primary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl pulse-glow">
+                        Start Session
+                    </button>
+                </div>
+
+                <div class="rounded-xl p-6 mb-4 card-shadow" style="background: var(--bg-card);">
+                    <h3 class="text-lg font-semibold mb-3 text-cyan-400">Quick Stats</h3>
+                    <div class="stats-grid">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-cyan-400" id="totalSessions">0</div>
+                            <div class="text-sm text-slate-400">Sessions</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400" id="longestHold">0s</div>
+                            <div class="text-sm text-slate-400">Longest Hold</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-amber-400" id="totalRounds">0</div>
+                            <div class="text-sm text-slate-400">Total Rounds</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-emerald-400" id="avgHold">0s</div>
+                            <div class="text-sm text-slate-400">Avg Hold</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-6 card-shadow" style="background: var(--bg-card);">
+                    <h3 class="text-lg font-semibold mb-3 text-purple-400">Session Settings</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-sm text-slate-400 mb-2 block">Breaths per Round</label>
+                            <select id="breathsPerRound" class="w-full bg-slate-700 text-white rounded-lg p-3 border border-slate-600 focus:border-cyan-500 focus:outline-none">
+                                <option value="30">30 breaths</option>
+                                <option value="35">35 breaths</option>
+                                <option value="40">40 breaths</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm text-slate-400 mb-2 block">Number of Rounds</label>
+                            <select id="numberOfRounds" class="w-full bg-slate-700 text-white rounded-lg p-3 border border-slate-600 focus:border-purple-500 focus:outline-none">
+                                <option value="3">3 rounds</option>
+                                <option value="4">4 rounds</option>
+                                <option value="5">5 rounds</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm text-slate-400 mb-2 block">Breath Pace (seconds)</label>
+                            <select id="breathPace" class="w-full bg-slate-700 text-white rounded-lg p-3 border border-slate-600 focus:border-amber-500 focus:outline-none">
+                                <option value="1.5">Fast (1.5s)</option>
+                                <option value="2">Normal (2s)</option>
+                                <option value="2.5">Slow (2.5s)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session View -->
+            <div id="sessionView" class="view hidden">
+                <div id="sessionStage" class="p-4 flex flex-col items-center justify-center min-h-[70vh]">
+                    <!-- Session content will be dynamically inserted -->
+                </div>
+            </div>
+
+            <!-- History View -->
+            <div id="historyView" class="view hidden p-4">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold mb-2 text-cyan-400">Session History</h2>
+                    <p class="text-slate-400 text-sm">Your past breathing sessions</p>
+                </div>
+                <div id="historyList" class="space-y-3">
+                    <!-- History items will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Guide View -->
+            <div id="guideView" class="view hidden p-4">
+                <div class="rounded-xl p-6 mb-4 card-shadow" style="background: var(--bg-card);">
+                    <h2 class="text-2xl font-bold mb-4 text-cyan-400">How It Works</h2>
+
+                    <div class="space-y-4 text-slate-300">
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-400 mb-2">1. Get Comfortable</h3>
+                            <p class="text-sm">Sit or lie down in a position that allows your belly to expand freely.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-400 mb-2">2. Deep Breathing (30-40 breaths)</h3>
+                            <p class="text-sm">Close your eyes and inhale deeply through your nose or mouth, expanding your belly and filling your lungs. Then exhale casually through your mouth without force. Repeat rapidly, focusing on full inhalations and relaxed exhalations.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-400 mb-2">3. Breath Retention</h3>
+                            <p class="text-sm">After the final exhale, hold your breath (with empty lungs) as long as you can. When you feel the urge to breathe, inhale fully and hold for about 15 seconds before exhaling.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-400 mb-2">4. Repeat</h3>
+                            <p class="text-sm">This completes one round. Most sessions involve 3-4 rounds of the above steps.</p>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-amber-500 bg-opacity-10 border border-amber-500 border-opacity-30 rounded-lg">
+                            <p class="text-sm text-amber-300">
+                                <strong>Important:</strong> Always practice in a safe environment. Never practice while driving, swimming, or in any situation where loss of consciousness could be dangerous.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

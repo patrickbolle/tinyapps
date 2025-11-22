@@ -1,0 +1,13 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#0f172a" rx="100"/>
+  <g fill="#06b6d4">
+    <!-- Breathing lungs icon -->
+    <circle cx="180" cy="256" r="90" opacity="0.3"/>
+    <circle cx="332" cy="256" r="90" opacity="0.3"/>
+    <path d="M 256 150 Q 180 180 180 256 Q 180 332 256 362 Q 332 332 332 256 Q 332 180 256 150 Z" fill="#06b6d4" opacity="0.5"/>
+    <!-- Center circle -->
+    <circle cx="256" cy="256" r="60" fill="#8b5cf6"/>
+    <!-- Text -->
+    <text x="256" y="420" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#06b6d4">BREATHE</text>
+  </g>
+</svg>

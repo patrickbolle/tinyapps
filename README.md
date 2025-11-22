@@ -29,6 +29,33 @@ A Progressive Web App (PWA) for tracking Jake Wood's 3x30 Bodyweight Program.
 
 ---
 
+### Breathe App
+
+A guided Progressive Web App (PWA) for practicing the Wim Hof breathing method.
+
+**Live Demo:** [https://wim-hof-breathing.pages.dev](https://wim-hof-breathing.pages.dev)
+
+**Features:**
+- Guided breathing sessions with visual and audio cues
+- Customizable sessions (breaths per round, number of rounds, pace)
+- Animated breathing circle that expands/contracts with your breath
+- Progress tracking with retention times and statistics
+- Audio feedback for inhale, exhale, retention, and transitions
+- Full Wim Hof method (deep breathing, retention, recovery breath)
+- Offline support (PWA)
+- iPhone optimized
+
+**Tech Stack:**
+- Vanilla JavaScript
+- Tailwind CSS
+- Web Audio API
+- localStorage API
+- Service Worker
+
+[View Source](./wim-hof-breathing)
+
+---
+
 ## Adding New Apps
 
 Each app should:
