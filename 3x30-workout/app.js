@@ -526,6 +526,7 @@ function startWarmupTimer() {
 }
 
 function startCircuitA() {
+    clearInterval(appState.timerInterval);
     appState.currentStage = 'circuitA';
     appState.currentRound = 1;
     renderCircuit('A', 1);
